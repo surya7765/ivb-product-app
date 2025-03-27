@@ -12,7 +12,7 @@ const products = [
     },
     {
         "id": 2,
-        "name": "product 2",
+        "name": "Asus Monitor",
         "price": 2000,
         "stock": 0,
         "category": "category 2",
@@ -22,7 +22,7 @@ const products = [
     },
     {
         "id": 3,
-        "name": "product 3",
+        "name": "Coffee Beans",
         "price": 3000,
         "stock": 30,
         "category": "category 3",
@@ -32,7 +32,7 @@ const products = [
     },
     {
         "id": 4,
-        "name": "product 4",
+        "name": "Smart Watch",
         "price": 4000,
         "stock": 40,
         "category": "category 4",
@@ -42,7 +42,7 @@ const products = [
     },
     {
         "id": 5,
-        "name": "product 5",
+        "name": "Western Dress",
         "price": 5000,
         "stock": 50,
         "category": "category 5",
@@ -52,7 +52,7 @@ const products = [
     },
     {
         "id": 6,
-        "name": "product 6",
+        "name": "Electric Cycle",
         "price": 6000,
         "stock": 60,
         "category": "category 6",
