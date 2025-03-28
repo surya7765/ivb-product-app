@@ -1,6 +1,7 @@
 import React from "react";
 import products from "../../models/products";
 import { Button, Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Product = () => {
   return (
@@ -32,7 +33,9 @@ const Product = () => {
                     {/* <p>{`${product.desc.substring(0,50)}...`}</p> */}
                   </Card.Text>
                   <Button variant="warning">Add To Cart</Button> {" "}
-                  <Button style={{ backgroundColor: "rgb(123, 78, 90)"}}>Buy Now</Button>
+                  <Button style={{ backgroundColor: "rgb(123, 78, 90)"}}>
+                    <Link to={`/buy_now`} style={{color:"white"}}>Buy Now</Link>
+                  </Button>
                 </Card.Body>
               </Card>
             </div>
