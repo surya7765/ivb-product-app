@@ -34,7 +34,7 @@ const Product = () => {
                   </Card.Text>
                   <Button variant="warning">Add To Cart</Button> {" "}
                   <Button style={{ backgroundColor: "rgb(123, 78, 90)"}}>
-                    <Link to={`/buy_now`} style={{color:"white"}}>Buy Now</Link>
+                    <Link to={`/buy_now`} style={{color:"white", textDecoration: "none"}}>Buy Now</Link>
                   </Button>
                 </Card.Body>
               </Card>
@@ -47,3 +47,8 @@ const Product = () => {
 };
 
 export default Product;
+
+
+
+// Create a README file with details about your project
+// with include versions - 0.0.1
