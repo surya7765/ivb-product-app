@@ -1,10 +1,16 @@
+import { IconButton } from '@mui/material';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router-dom';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+
 
 function CollapsibleNavBar() {
+
+  const count = 0;
+
   return (
     <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
       <Container>
@@ -32,6 +38,11 @@ function CollapsibleNavBar() {
               Dank memes
             </Nav.Link>
           </Nav>
+          <Link to={'/cart'} style={{textDecoration:"none", color:"black"}}>
+            <IconButton color="primary" aria-label="add to shopping cart">
+              <AddShoppingCartIcon /> {count}
+            </IconButton>
+          </Link>
         </Navbar.Collapse>
       </Container>
     </Navbar>

@@ -1,15 +1,14 @@
 import { Button, Checkbox, FormControlLabel, TextField } from '@mui/material'
 import './BuyNow.css'
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
+import Snackbar from '@mui/material/Snackbar';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
 
 function BuyNow() {
-
-    const handleSubmit = (e) => {
-        e.preventDefault(); // Prevent the default form submission behavior
-        
-
-
-        let formData = {
+    
+    let [formData, setFormData] = useState(
+        {
             name: "",
             email: "",
             phone: "",
@@ -20,35 +19,75 @@ function BuyNow() {
             zipCode: "",
             isSameAddress: false
         }
+    );
 
-        // Get the values from the form fields
-        formData.name = e.target[0].value;
-        formData.email = e.target[2].value;
-        formData.phone = e.target[4].value;
-        formData.upiId = e.target[6].value;
-        formData.flatNo = e.target[8].value;
-        formData.city = e.target[10].value;
-        formData.state = e.target[12].value;
-        formData.zipCode = e.target[14].value;
-        formData.isSameAddress = e.target[16].checked;
+    const [open, setOpen] = useState(false);
+
+    const handleClick = () => {
+        setOpen(true);
+    };
+
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+        return;
+        }
+
+        setOpen(false);
+    };
+
+    const action = (
+        <Fragment>
+          <Button color="secondary" size="small" onClick={handleClose}>
+            UNDO
+          </Button>
+          <IconButton
+            size="small"
+            aria-label="close"
+            color="inherit"
+            onClick={handleClose}
+          >
+            <CloseIcon fontSize="small" />
+          </IconButton>
+        </Fragment>
+      );
+
+    const handleSubmit = (e) => {
+        e.preventDefault(); // Prevent the default form submission behavior
         
+
+        setFormData({
+            name: e.target[0].value,
+            email: e.target[2].value,
+            phone: e.target[4].value,
+            upiId: e.target[6].value,
+            flatNo: e.target[8].value,
+            city: e.target[10].value,
+            state: e.target[12].value,
+            zipCode: e.target[14].value,
+            isSameAddress: e.target[16].checked
+        })
         console.log(formData);
-
-
-
-
-
-
         console.log("Form submitted");
+
+        // Show the snackbar
+        handleClick();
     }
 
   return (
     <div>
+        <div id='succes-snack-bar'>
+            <Snackbar
+                open={open}
+                autoHideDuration={6000}
+                onClose={handleClose}
+                message="Form submitted successfully"
+                action={action}
+            />
+        </div>
         <h1>Buy Now</h1>
         <form onSubmit={handleSubmit}>
             <div>
                 <h3>User Details</h3>
-                <div id='success-snack-bar'></div>
                 <div className='row form-group'>
                     <div className='col-md-6'>
                         <TextField className='buy-now-text' type="text" label="Name" placeholder="Enter your name" />

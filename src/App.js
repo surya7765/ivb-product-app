@@ -3,6 +3,7 @@ import Home from './components/home/Home';
 import CollapsibleNavBar from "./components/navbar/NavBar";
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import BuyNow from './services/buy_now/BuyNow';
+import AddToCart from './services/add_to_cart/AddToCart';
 
 function App() {
   return (
@@ -11,7 +12,9 @@ function App() {
         <CollapsibleNavBar />
         <Routes>
           <Route path='/' element={<Home/>}/>
-          <Route path='/buy_now' element={<BuyNow/>}/>
+          {/* Dynamic URL */}
+          <Route path='/buy_now/:id' element={<BuyNow/>}/>
+          <Route path='/cart'element={<AddToCart/>}/>
         </Routes>
       </Router>
     </div>
